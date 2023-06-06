@@ -3,15 +3,21 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyComponent from './component/MyComponent';
+import React from 'react';
 
-function App() {
-  return (
-    <div className='app-container'>
+class App extends React.Component {
+  render() {
+    return (
+      <div className='app-container'>
       <p>Hello Loi</p> 
       <MyComponent></MyComponent>
-    </div>
-  )
+      </div>
+    ) 
+  }
 }
+
+
+
 
 export default App
 
