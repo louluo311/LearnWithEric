@@ -2,10 +2,13 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyComponent from './component/MyComponent';
 
 function App() {
   return (
-    <div className='app-container'>Hello World
+    <div className='app-container'>
+      <p>Hello Loi</p> 
+      <MyComponent></MyComponent>
     </div>
   )
 }
