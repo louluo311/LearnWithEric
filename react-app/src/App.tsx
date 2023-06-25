@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
+import './App.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyComponent from './component/MyComponent';
 import React from 'react';
