@@ -11,7 +11,7 @@ class AddUserInfor extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
+        // console.log(this.state)
 
         this.props.handleAddNewUser({
             id: Math.floor(Math.random() * 100 + 1) + '-random',
@@ -37,7 +37,7 @@ class AddUserInfor extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
                 my name is {this.state.name} and I'm from {this.state.address}. I'm {this.state.age}
                 <button onClick={(event) => {this.handleClick(event)} }>Click Me</button>
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
@@ -56,7 +56,7 @@ class AddUserInfor extends React.Component {
                         type="text" />
                     <button>submit</button>
                 </form>
-            </div>
+            </>
         )
     }
 }
