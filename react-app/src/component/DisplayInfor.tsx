@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './DisplayInfor.scss'
 // Stateful
 // class DisplayInfor extends React.Component {
@@ -39,11 +39,16 @@ import './DisplayInfor.scss'
 //Stateless
 const DisplayInfor = (props) => {
     const { listUsers } = props;    
-    console.log('>>> call me render') 
+    const [isShowHideListUser, setShowHideListUser] = useState(true);
+    const hangleShowHideListUser = () => {
+        setShowHideListUser(!isShowHideListUser)
+    }
     return (
-            <div className="display-infor-container">
-
-                {true&&
+        <div className="display-infor-container">
+            <div>
+                <span onClick={() => hangleShowHideListUser()}>{isShowHideListUser? 'Hide':'Show' } list user</span>
+                </div>
+            {isShowHideListUser &&
                     <div>
                         {listUsers.map((user, index) => {
                             // console.log(listUsers)
