@@ -1,49 +1,11 @@
 import React, { useState } from "react";
 import AddUserInfor from "./AddUserInfor";
-// import AddUserInfor2 from "./AddUserInfor2";
 import DisplayInfor from "./DisplayInfor";
-
-// class MyComponent extends React.Component {
-
-//     state = {
-//         listUsers: [
-//             { id: 1, name: 'Hoi Dan IT', age: '15' },
-//             { id: 2, name: 'Mark', age: '47' },
-//             { id: 3, name: 'Al', age: '30' },
-//         ]
-//     }
-
-//     handleAddNewUser = (userObject) => {
-//         // console.log('>>> Check data from parent ', userObject);
-//         this.setState({
-//             listUsers: [userObject, ...this.state.listUsers]
-//         })
-//     }
-
-//     handleDeleteUser = (userId) => {
-//         let listUserClone = [...this.state.listUsers];
-//         listUserClone = listUserClone.filter(item => item.id !== userId);
-//         this.setState({
-//             listUsers: listUserClone
-//         })
-//     }
-//     render() {
-//         //DRY -> 'DON'T REPEAT YOURSELF'
-//         return (
-//             <div>
-//                 <AddUserInfor
-//                     handleAddNewUser={this.handleAddNewUser}
-//                 />
-//                 <AddUserInfor2></AddUserInfor2>
-//                 <br /><br />
-//                 <DisplayInfor
-//                     listUsers={this.state.listUsers}
-//                     handleDeleteUser={this.handleDeleteUser}
-//                 />
-//             </div>
-//         );
-//     }
-// }
+import Cards from "./Cards"
+import AddThingToDo from "./AddThingToDo";
+import DisplayThingToDo from "./DisplayThingToDo";
+import AddThingToDo2 from "./AddThingToDo2";
+import ListGroup from "./ListGroup";
 
 const MyComponent = (props) => {
     const [listUsers, setListUsers] = useState([
@@ -63,16 +25,57 @@ const MyComponent = (props) => {
 
     }
 
+
+    const [listThings, setListThings] = useState([
+        { id: 1, thing: 'Coding' },
+        { id: 2, thing: 'Martial Art' },
+        { id: 3, thing: 'Meditation' },
+    ])
+
+    const handleAddNewThing = (userObject) => {
+        setListThings([userObject, ...listThings])
+    }
+
+    const handleDeleteThing = (userId) => {
+        let listThingsClone = [...listThings];
+        listThingsClone = listThingsClone.filter(item => item.id !== userId);
+        setListThings(listThingsClone)
+
+    }
+
+    // items of listgroup && props
+    let items = ['Alameda', 'San Leandro', 'Oakland', 'San Jose'];
+
+
+
+    let food = ['chicken', 'duck', 'lechon', 'xiu mai'];
+
+    // select item from listgroup
+    const handleSelectItem = (item: string) => {
+        console.log(item)
+    }
     return (
         < div >
-            <AddUserInfor
+            {/* <AddUserInfor
                 handleAddNewUser={handleAddNewUser}
             />
             <br /><br />
             <DisplayInfor
                 listUsers={listUsers}
                 handleDeleteUser={handleDeleteUser}
+            /> */}
+            {/* <Cards></Cards> */}
+            <AddThingToDo
+                handleAddNewThing={handleAddNewThing}>
+
+            </AddThingToDo>
+            <DisplayThingToDo
+                listThings={listThings}
+                handleDeleteThing={handleDeleteThing}
             />
+            <ListGroup items={items} heading='Cities' onSelectItem={handleSelectItem}></ListGroup>
+            {/* <ListGroup items={food} heading='Food Menu' onSelectItem={handleSelectItem}></ListGroup> */}
+
         </div >
     )
 
