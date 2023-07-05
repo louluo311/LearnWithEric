@@ -1,12 +1,13 @@
 
 import './App.scss'
 import React from 'react';
+import Header from './component/Header/Header';
 
 class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
-        <p>Hello World</p>
+        <Header></Header>
 
       </div>
     )
