@@ -2,13 +2,24 @@
 import './App.scss'
 import React from 'react';
 import Header from './component/Header/Header';
+import { Link } from "react-router-dom";
 
 class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
-        <Header></Header>
-
+        <Header />
+        <div>
+          Test Link
+        </div>
+        <div>
+          <button>
+            <Link to='/users'>Go to User Page</Link>
+          </button>
+          <button>
+            <Link to='/admins'>Go to Admin Page</Link>
+          </button>
+        </div>
       </div>
     )
   }
