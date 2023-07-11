@@ -2,3 +2,17 @@ body {
   padding: 0;
   margin: 0;
 }
+
+//.nav-link and .active are same children so active need '&' infront
+
+.app-container {
+  .header-container {
+    .navbar-nav {
+      .nav-link {
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+}
