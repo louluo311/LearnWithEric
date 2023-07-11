@@ -15,10 +15,7 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Link to='/' className='nav-link'>Home</Link>
                         <Link to='/users' className='nav-link'>User</Link>
-                        <Link to='/admin' className='nav-link'>Admin</Link>
-                        {/* <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="#user">User</Nav.Link>
-                        <Nav.Link href="#admin">Admin</Nav.Link> */}
+                        <Link to='/admins' className='nav-link'>Admin</Link>
                     </Nav>
                     <Nav>
                         <NavDropdown title="Setting" id="basic-nav-dropdown">

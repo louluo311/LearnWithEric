@@ -13,10 +13,12 @@ import Admin from './component/Addmin/Admin';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<App />}>
+                <Route path="users" element={<User />} />
+                <Route path="admins" element={<Admin />} />
+            </Route>
             {/* thay đổi cái link path */}
-            <Route path="users" element={<User />} />
-            <Route path="admins" element={<Admin />} />
+
         </Routes>
 
     </BrowserRouter>
