@@ -1,15 +1,57 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: apercu-pro, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 //.nav-link and .active are same children so active need '&' infront
+@media (min-width: 1300px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1350px !important;
+  }
+}
 
 .app-container {
   .header-container {
-    .navbar-nav {
+    .btn-login {
+      width: 89px;
+      border-radius: 5px;
+      border: 1px solid #535353;
+      margin-right: 16px;
+      padding: 0px 15px;
+      height: 40px;
+
+      &:hover {
+        background-color: whitesmoke;
+      }
+    }
+
+    .btn-signup {
+      border-radius: 5px;
+      border: 1px solid #535353;
+      margin-right: 16px;
+      padding: 0px 15px;
+      background: #535353;
+      color: whitesmoke;
+      height: 40px;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+
+    .navbar {
       z-index: 10;
-      opacity: 0.6;
+      background-color: rgba(0, 0, 0, 0) !important;
+      padding-top: 20px;
 
       .nav-link {
         &.active {
@@ -19,6 +61,66 @@ body {
     }
   }
 }
+
+.homepage-container {
+  display: flex;
+
+  .homepage-content {
+    float: right;
+    position: relative;
+    padding: 35px 60px 0px;
+    margin-top: 75px;
+
+    .title-form {
+      font-size: 64px;
+      line-height: 1;
+    }
+
+    .title-signup {
+      font-size: 24px;
+      padding-top: 20px;
+    }
+
+    button {
+      display: inline-block;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-box-pack: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.5;
+      color: rgb(255, 255, 255);
+      transition: background-color 0.2s ease-out 0s, border-color, color, opacity;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: rgb(26, 26, 25);
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(26, 26, 25);
+      border-image: initial;
+
+    }
+  }
+
+  video {
+    width: 55%;
+  }
+}
+
+// .homepage-content {
+//   float: right;
+//   position: relative;
+//   padding: 0 100px;
+//   margin-top: 100px;
+
+//   video {
+//     display: flex;
+//     float: left;
+//     width: 40%;
+//   }
+// }
 
 // video {
 //   position: fixed;
