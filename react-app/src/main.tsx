@@ -17,10 +17,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="/" element={<App />}>
                 <Route index element={<HomePage />} />
                 <Route path="users" element={<User />} />
-                <Route path="admins" element={<Admin />} />
+
             </Route>
             {/* thay đổi cái link path */}
-
+            <Route path="admins" element={<Admin />} />
         </Routes>
 
     </BrowserRouter>
