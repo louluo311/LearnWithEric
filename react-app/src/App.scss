@@ -37,6 +37,7 @@ body {
     .btn-signup {
       border-radius: 5px;
       border: 1px solid #535353;
+      // border: none;
       margin-right: 16px;
       padding: 0px 15px;
       background: #535353;
@@ -100,7 +101,7 @@ body {
       border-style: solid;
       border-color: rgb(26, 26, 25);
       border-image: initial;
-
+      border: none;
     }
   }
 
