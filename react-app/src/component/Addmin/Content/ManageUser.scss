@@ -1,0 +1,40 @@
+.manage-user-container {
+    .users-content {}
+}
+
+.madal-add-user {
+    .label-upload {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        gap: 5px;
+        padding: 3px 10px;
+        border-radius: 5px;
+        background: #f4fff3;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: #c9dbc8;
+        }
+    }
+
+    .image-preview {
+        height: 150px;
+        border: 1px dashed #ccc;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ccc;
+
+
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.form-label {}
