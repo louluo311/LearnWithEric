@@ -4,11 +4,24 @@ import Modal from 'react-bootstrap/Modal';
 import fileImage from './fileImage2.jpg'
 import './ManageUser.scss'
 import { FcPlus } from 'react-icons/fc'
+import axios from 'axios';
 
-const MadalCreateUser = () => {
+interface Props {
+    heading: string;
+}
+
+const MadalCreateUser = ({ heading }: Props) => {
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+        setEmail('');
+        setPassword('');
+        setUsername('');
+        setRole('USER');
+        setImage('');
+        setPreviewImage('')
+    };
     const handleShow = () => setShow(true);
 
     //state hoá dữ liệu để kết hợp backend
@@ -27,16 +40,38 @@ const MadalCreateUser = () => {
         } else {
             // setPreviewImage('');
             //if user does not upload image -> setPreviewImage is null
-
         }
-        // console.log('test', event.target.file[0])
     }
 
+    const handleSubmitCreateUser = async () => {
+        //validate - when user or admin left blank - invalid
+
+        //call apis cho nguoi dung`
+        // let data = {
+        //     email: email,
+        //     password: password,
+        //     username: username,
+        //     role: role,
+        //     userImage: image
+        // }
+
+        //Khi sử dụng file thì bắt buộc phải dùng formdata để có thể gửi data lên sever
+        const data = new FormData();
+        data.append('email', email);
+        data.append('password', password);
+        data.append('username', username);
+        data.append('role', role);
+        data.append('userImage', image);
+
+
+        let res = await axios.post('http://localhost:8081/api/v1/participant', data)
+        console.log('>>>check res: ', res)
+    }
 
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                {heading}
             </Button>
 
             <Modal
@@ -110,7 +145,7 @@ const MadalCreateUser = () => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={() => handleSubmitCreateUser()}>
                         Save
                     </Button>
                 </Modal.Footer>
