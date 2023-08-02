@@ -5,6 +5,8 @@ import fileImage from './fileImage2.jpg'
 import './ManageUser.scss'
 import { FcPlus } from 'react-icons/fc'
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 interface Props {
     heading: string;
@@ -43,18 +45,24 @@ const MadalCreateUser = ({ heading }: Props) => {
         }
     }
 
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
     const handleSubmitCreateUser = async () => {
         //validate - when user or admin left blank - invalid
 
         //call apis cho nguoi dung`
-        // let data = {
-        //     email: email,
-        //     password: password,
-        //     username: username,
-        //     role: role,
-        //     userImage: image
-        // }
-
+        const isValidEmail = validateEmail(email)
+        //if it's not valid, there's no data to return below
+        if (!isValidEmail) {
+            toast.error('Invalid Email!')
+            return;
+        }
         //Khi sử dụng file thì bắt buộc phải dùng formdata để có thể gửi data lên sever
         const data = new FormData();
         data.append('email', email);
@@ -65,7 +73,13 @@ const MadalCreateUser = ({ heading }: Props) => {
 
 
         let res = await axios.post('http://localhost:8081/api/v1/participant', data)
-        console.log('>>>check res: ', res)
+        console.log('>>>check res: ', res.data);
+        if (res.data && res.data.EC === 0) {
+            toast.success(res.data.EM);
+            handleClose();
+        } if (res.data && res.data.EC !== 0) {
+            toast.error(res.data.EM);
+        }
     }
 
     return (
