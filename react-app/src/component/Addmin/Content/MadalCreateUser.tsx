@@ -6,6 +6,7 @@ import './ManageUser.scss'
 import { FcPlus } from 'react-icons/fc'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { postCreateNewUser } from '../../../services/apiServices';
 
 
 interface Props {
@@ -63,16 +64,10 @@ const MadalCreateUser = ({ heading }: Props) => {
             toast.error('Invalid Email!')
             return;
         }
-        //Khi sử dụng file thì bắt buộc phải dùng formdata để có thể gửi data lên sever
-        const data = new FormData();
-        data.append('email', email);
-        data.append('password', password);
-        data.append('username', username);
-        data.append('role', role);
-        data.append('userImage', image);
 
 
-        let res = await axios.post('http://localhost:8081/api/v1/participant', data)
+
+        let res = await postCreateNewUser(email, password, username, role, image)
         console.log('>>>check res: ', res.data);
         if (res.data && res.data.EC === 0) {
             toast.success(res.data.EM);
