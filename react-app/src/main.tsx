@@ -3,7 +3,18 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Users from './component/Users/Users';
+import Admin from './component/Admin/Admin';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <App />
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<App />}>
+                <Route path="/users" element={<Users />} />
+                <Route path="/admin" element={<Admin />} />
+            </Route>
+
+        </Routes>
+    </BrowserRouter>
 )
