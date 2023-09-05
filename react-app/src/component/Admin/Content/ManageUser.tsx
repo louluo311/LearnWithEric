@@ -1,6 +1,6 @@
 import React from 'react'
 import ModalCreateUser from './ModalCreateUser'
-
+import './ManageUser.scss'
 
 
 const ManageUser = () => {
@@ -13,8 +13,8 @@ const ManageUser = () => {
                 </div>
                 <div>
                     table users
-                    <ModalCreateUser />
                 </div>
+                <ModalCreateUser />
             </div>
         </div>
     )
