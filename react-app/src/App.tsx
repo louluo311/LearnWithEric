@@ -1,19 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.scss'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import MyComponent from './component/MyComponent';
 import React from 'react';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className='app-container'>
-      <p>Hello Loi</p> 
-      <MyComponent></MyComponent>
-      </div>
-    ) 
-  }
+const App = () => {
+
+  return (
+    <div className='app-container'>
+      Hello World
+    </div>
+  )
 }
 
 
