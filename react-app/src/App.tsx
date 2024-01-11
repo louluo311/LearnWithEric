@@ -2,12 +2,13 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.scss'
 import React from 'react';
+import Header from './component/Header/Header';
 
 const App = () => {
 
   return (
     <div className='app-container'>
-      Hello World
+      <Header />
     </div>
   )
 }
