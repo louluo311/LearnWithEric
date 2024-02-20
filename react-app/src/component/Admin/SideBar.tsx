@@ -12,6 +12,7 @@ import { DiReact } from "react-icons/di";
 import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
 import sidebarBg from '../../assets/bg2.jpg';
 import './SideBar.scss';
+import { Link } from 'react-router-dom';
 
 
 const SideBar = (props) => {
@@ -48,6 +49,7 @@ const SideBar = (props) => {
                         <MenuItem
                             icon={<FaTachometerAlt />}
                         >
+                            <Link to='/admins' />
                             Dashboard
                         </MenuItem>
                     </Menu>
@@ -57,6 +59,7 @@ const SideBar = (props) => {
                             title={'Features'}
                         >
                             <MenuItem> Quản Lý User</MenuItem>
+                            <Link to='/admins/manage-users' />
                             <MenuItem> Quản Lý Bài Quiz</MenuItem>
                             <MenuItem> Quản Lý Câu Hỏi</MenuItem>
                         </SubMenu>
